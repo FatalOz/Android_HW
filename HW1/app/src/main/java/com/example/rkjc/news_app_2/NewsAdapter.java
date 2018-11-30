@@ -14,10 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemViewHolder> {
-    private ArrayList<NewsItem> mDataset;
+    private List<NewsItem> mDataset;
     private Activity mActivity;
 
     // Provide a reference to the views for each data item
@@ -30,6 +31,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemViewHo
             super(v);
             mLinearLayout = v;
         }
+    }
+
+    void setNews(List<NewsItem> news){
+        mDataset = news;
+        notifyDataSetChanged();
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
